@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Console greeting
-    console.log('%c raschgz workshop ', 'background: linear-gradient(135deg, #4a90d9 0%, #357abd 100%); color: white; font-size: 20px; padding: 10px; border-radius: 5px;');
+    console.log('%c ORIENTAL COMMUNICATION CO., LIMITED ', 'background: linear-gradient(135deg, #4a90d9 0%, #357abd 100%); color: white; font-size: 14px; padding: 10px; border-radius: 5px;');
     console.log('%c 欢迎来到 Rasch 模型工作坊！', 'color: #4a90d9; font-size: 14px;');
     console.log('%c 联系邮箱: qzhang141@Rasch-GZ.com', 'color: #666; font-size: 12px;');
 });

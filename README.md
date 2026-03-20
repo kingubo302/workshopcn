@@ -1,13 +1,20 @@
-# raschgz workshop
+# Oriental (ORIENTAL COMMUNICATION CO., LIMITED)
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://yourusername.github.io/raschgz-workshop/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://yourusername.github.io/oriental-communication/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**raschgz workshop** 是一个介绍 **Rasch 模型**（拉什模型）的单页面静态网站，用于心理测量和教育测量领域的研究与交流。
+**Oriental** (ORIENTAL COMMUNICATION CO., LIMITED) 旗下的 Rasch 模型研究网站，用于心理测量和教育测量领域的研究与交流。
+
+## 🏢 公司信息
+
+- **公司全称**: ORIENTAL COMMUNICATION CO., LIMITED
+- **地址**: ROOM 1101 11/F CAPITAL CENTRE, 151 GLOUCESTER ROAD, WANCHAI, HK
+- **电话**: (852) 2507 7341
+- **邮箱**: qzhang141@Rasch-GZ.com
 
 ## 🌐 在线预览
 
-访问 [GitHub Pages](https://yourusername.github.io/raschgz-workshop/) 查看在线版本。
+访问 [GitHub Pages](https://yourusername.github.io/oriental-communication/) 查看在线版本。
 
 ## 📖 内容概览
 
@@ -93,6 +100,9 @@ npx serve .
 
 ## 📧 联系我们
 
+- **公司**: ORIENTAL COMMUNICATION CO., LIMITED
+- **地址**: ROOM 1101 11/F CAPITAL CENTRE, 151 GLOUCESTER ROAD, WANCHAI, HK
+- **电话**: (852) 2507 7341
 - **邮箱**: qzhang141@Rasch-GZ.com
 - **官网**: https://www.rasch-gz.com/
 
@@ -102,4 +112,4 @@ npx serve .
 
 ---
 
-**raschgz workshop** - 为客观测量而生的统计模型研究平台
+**Oriental** - 为客观测量而生的统计模型研究平台
