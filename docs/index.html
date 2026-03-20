@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasch workshop - Rasch 模型工作坊</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Rasch workshop</div>
+            <ul class="nav-menu">
+                <li><a href="#overview">概述</a></li>
+                <li><a href="#partners">合作机构</a></li>
+                <li><a href="#formula">数学模型</a></li>
+                <li><a href="#assumptions">基本假设</a></li>
+                <li><a href="#applications">应用领域</a></li>
+                <li><a href="#advantages">优势与局限</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Rasch workshop</h1>
+            <p class="subtitle">Rasch 模型与心理测量研究</p>
+            <p class="author">致力于推广 Rasch 模型在教育与心理测量中的应用</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="overview" class="section">
+            <h2>📚 概述</h2>
+            <div class="card">
+                <p>Rasch 模型是一种用于心理测量和教育测量的概率统计模型。它描述了个体能力（person ability）与题目难度（item difficulty）之间的关系，用于预测个体正确回答特定题目的概率。</p>
+                <p>该模型的核心思想是：一个人正确回答某道题目的概率，只取决于这个人的能力水平和题目的难度水平之间的差异。</p>
+                <div class="highlight">
+                    <strong>核心原则：</strong>如果一个人能力 θ 高于题目难度 δ，则答对该题目的概率大于 50%；反之则小于 50%。
+                </div>
+            </div>
+        </section>
+
+        <section id="formula" class="section">
+            <h2>📐 数学模型</h2>
+            <div class="card">
+                <h3>基本公式</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        P(X<sub>ni</sub> = 1 | θ<sub>n</sub>, δ<sub>i</sub>) = <span class="fraction"><span class="num">e<sup>(θ<sub>n</sub> - δ<sub>i</sub>)</sup></span><span class="den">1 + e<sup>(θ<sub>n</sub> - δ<sub>i</sub>)</sup></span></span>
+                    </div>
+                </div>
+                <div class="formula-legend">
+                    <p>其中：</p>
+                    <ul>
+                        <li><strong>X<sub>ni</sub></strong>：个体 n 对题目 i 的反应（1 = 正确，0 = 错误）</li>
+                        <li><strong>θ<sub>n</sub></strong>：个体 n 的能力参数（对数尺度）</li>
+                        <li><strong>δ<sub>i</sub></strong>：题目 i 的难度参数（对数尺度）</li>
+                        <li><strong>e</strong>：自然对数的底（约等于 2.71828）</li>
+                    </ul>
+                </div>
+
+                <h3>几率（Odds）形式</h3>
+                <div class="formula-box">
+                    <div class="formula">
+                        ln(<span class="fraction"><span class="num">P</span><span class="den">1 - P</span></span>) = θ<sub>n</sub> - δ<sub>i</sub>
+                    </div>
+                </div>
+                <p>正确回答的几率对数等于个体能力减去题目难度。</p>
+
+                <h3>项目特征曲线（ICC）</h3>
+                <div class="icc-visualization">
+                    <svg viewBox="0 0 600 300" class="icc-chart">
+                        <!-- 坐标轴 -->
+                        <line x1="50" y1="250" x2="550" y2="250" stroke="#333" stroke-width="2"/>
+                        <line x1="50" y1="250" x2="50" y2="20" stroke="#333" stroke-width="2"/>
+                        
+                        <!-- Y轴标签 -->
+                        <text x="15" y="140" class="axis-label" transform="rotate(-90, 15, 140)">答对概率 P</text>
+                        <text x="30" y="255" class="tick">0</text>
+                        <text x="25" y="140" class="tick">0.5</text>
+                        <text x="25" y="25" class="tick">1</text>
+                        
+                        <!-- X轴标签 -->
+                        <text x="300" y="290" class="axis-label">能力 θ - 难度 δ</text>
+                        <text x="290" y="270" class="tick">0</text>
+                        <text x="140" y="270" class="tick">-2</text>
+                        <text x="440" y="270" class="tick">+2</text>
+                        
+                        <!-- 网格线 -->
+                        <line x1="50" y1="135" x2="550" y2="135" stroke="#ddd" stroke-dasharray="4"/>
+                        <line x1="300" y1="20" x2="300" y2="250" stroke="#ddd" stroke-dasharray="4"/>
+                        
+                        <!-- ICC曲线 -->
+                        <path d="M 50,245 Q 150,230 250,135 T 450,30 L 550,25" 
+                              fill="none" stroke="#4a90d9" stroke-width="3"/>
+                        
+                        <!-- 关键点标注 -->
+                        <circle cx="300" cy="135" r="5" fill="#e74c3c"/>
+                        <text x="310" y="125" class="annotation">P = 0.5</text>
+                    </svg>
+                    <p class="caption">项目特征曲线（ICC）：S型曲线展示能力与答对概率的关系</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="assumptions" class="section">
+            <h2>🎯 基本假设</h2>
+            <div class="card">
+                <div class="assumptions-grid">
+                    <div class="assumption-item">
+                        <div class="icon">📏</div>
+                        <h4>单维性（Unidimensionality）</h4>
+                        <p>测量只涉及一个潜在特质或能力维度。所有题目都测量同一个构念。</p>
+                    </div>
+                    <div class="assumption-item">
+                        <div class="icon">🎲</div>
+                        <h4>局部独立性（Local Independence）</h4>
+                        <p>给定能力水平，个体对不同题目的反应相互独立。</p>
+                    </div>
+                    <div class="assumption-item">
+                        <div class="icon">⚖️</div>
+                        <h4>题目同质性（Item Homogeneity）</h4>
+                        <p>所有题目具有相同的区分度（在基本Rasch模型中假设为1）。</p>
+                    </div>
+                    <div class="assumption-item">
+                        <div class="icon">📊</div>
+                        <h4>单调性（Monotonicity）</h4>
+                        <p>能力越高，答对概率越大。项目特征曲线单调递增。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="applications" class="section">
+            <h2>🔬 应用领域</h2>
+            <div class="card">
+                <div class="applications-list">
+                    <div class="app-category">
+                        <h4>📖 教育测量</h4>
+                        <ul>
+                            <li>标准化考试（如PISA、TIMSS）</li>
+                            <li>学业成就评估</li>
+                            <li>题库开发与等值</li>
+                            <li>计算机自适应测试（CAT）</li>
+                        </ul>
+                    </div>
+                    <div class="app-category">
+                        <h4>🧠 心理测量</h4>
+                        <ul>
+                            <li>人格量表开发</li>
+                            <li>临床评估工具</li>
+                            <li>健康相关生活质量测量</li>
+                            <li>认知能力评估</li>
+                        </ul>
+                    </div>
+                    <div class="app-category">
+                        <h4>🏥 医学与康复</h4>
+                        <ul>
+                            <li>功能独立性测量（FIM）</li>
+                            <li>患者报告结局（PRO）</li>
+                            <li>康复效果评估</li>
+                            <li>最小临床重要差异（MCID）确定</li>
+                        </ul>
+                    </div>
+                    <div class="app-category">
+                        <h4>📋 其他领域</h4>
+                        <ul>
+                            <li>市场研究中的态度测量</li>
+                            <li>社会科学调查</li>
+                            <li>语言测试（如雅思、托福研究）</li>
+                            <li>绩效评估与认证考试</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="advantages" class="section">
+            <h2>⚖️ 优势与局限</h2>
+            <div class="card comparison-card">
+                <div class="comparison">
+                    <div class="pros">
+                        <h3>✅ 优势</h3>
+                        <ul>
+                            <li><strong>客观测量：</strong>题目参数与样本无关，个体参数与题目集合无关</li>
+                            <li><strong>线性量尺：</strong>提供等距的测量量尺，支持算术运算</li>
+                            <li><strong>题目质量诊断：</strong>提供拟合统计量评估题目表现</li>
+                            <li><strong>测试等值：</strong>支持不同测试版本之间的分数比较</li>
+                            <li><strong>缺失数据处理：</strong>无需删除不完整的作答数据</li>
+                            <li><strong>适应性测试：</strong>为计算机自适应测试提供理论基础</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h3>⚠️ 局限</h3>
+                        <ul>
+                            <li><strong>模型约束严格：</strong>单维性假设在实践中常被违反</li>
+                            <li><strong>样本量要求：</strong>通常需要较大的样本量进行参数估计</li>
+                            <li><strong>计算复杂：</strong>参数估计需要迭代算法</li>
+                            <li><strong>题目拟合问题：</strong>很多题目可能不符合模型假设</li>
+                            <li><strong>区分度假设：</strong>基本模型假设所有题目区分度相同</li>
+                            <li><strong>学习曲线陡峭：</strong>对初学者来说概念较难理解</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🛠️ 常用软件</h2>
+            <div class="card">
+                <div class="software-grid">
+                    <div class="software-item">
+                        <strong>Rasch-GZ</strong>
+                        <span>国产中文平台，用户友好</span>
+                    </div>
+                    <div class="software-item">
+                        <strong>Winsteps</strong>
+                        <span>Windows平台，功能全面</span>
+                    </div>
+                    <div class="software-item">
+                        <strong>Facets</strong>
+                        <span>多面Rasch模型分析</span>
+                    </div>
+                    <div class="software-item">
+                        <strong>R (eRm, ltm, TAM)</strong>
+                        <span>开源免费，功能强大</span>
+                    </div>
+                    <div class="software-item">
+                        <strong>ConQuest</strong>
+                        <span>多维项目反应理论</span>
+                    </div>
+                    <div class="software-item">
+                        <strong>jMetrik</strong>
+                        <span>Java开源，跨平台</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>📚 推荐资源</h2>
+            <div class="card">
+                <h4>经典文献</h4>
+                <ul class="resource-list">
+                    <li>Rasch, G. (1960). <em>Probabilistic Models for Some Intelligence and Attainment Tests.</em></li>
+                    <li>Bond, T. G., & Fox, C. M. (2015). <em>Applying the Rasch Model.</em> (3rd ed.)</li>
+                    <li>Linacre, J. M. (1989). Many-Facet Rasch Measurement.</li>
+                </ul>
+                
+                <h4>在线资源</h4>
+                <ul class="resource-list">
+                    <li>Rasch Measurement Transactions: <a href="https://www.rasch.org/rmt/" target="_blank">rasch.org/rmt</a></li>
+                    <li>Rasch-GZ 官网: <a href="https://www.rasch-gz.com/" target="_blank">rasch-gz.com</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section contact-section">
+            <h2>📞 联系我们</h2>
+            <div class="card contact-card">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h4>Rasch workshop</h4>
+                        <p class="contact-desc">欢迎咨询 Rasch 模型相关问题、软件使用及合作事宜</p>
+                        <div class="email-box">
+                            <span class="email-icon">📧</span>
+                            <a href="mailto:qzhang141@Rasch-GZ.com">qzhang141@Rasch-GZ.com</a>
+                        </div>
+                    </div>
+                    <div class="qr-codes">
+                        <div class="qr-item">
+                            <img src="gz.png" alt="Rasch-GZ 官网二维码">
+                            <span>官方网站</span>
+                        </div>
+                        <div class="qr-item">
+                            <img src="wechat.png" alt="微信二维码">
+                            <span>微信公众号</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <h4>Rasch workshop</h4>
+                    <p>Rasch 模型与心理测量研究</p>
+                </div>
+                <div class="footer-contact">
+                    <p><strong>联系邮箱：</strong> <a href="mailto:qzhang141@Rasch-GZ.com">qzhang141@Rasch-GZ.com</a></p>
+                </div>
+            </div>
+            <div class="footer-stats">
+                <div class="stat-item">
+                    <span class="stat-label">📅 日期：</span>
+                    <span id="current-date"></span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">👥 访问人数：</span>
+                    <span id="visitor-count">加载中...</span>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="copyright-year">2026</span> Rasch workshop | 使用 MIT 许可证开源</p>
+                <p>本页面托管于 GitHub Pages</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
